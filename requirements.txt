@@ -3,6 +3,7 @@ boto3==1.26.43
 botocore==1.29.43
 Django==4.1.5
 django-filter==22.1
+gunicorn==20.1.0
 jmespath==1.0.1
 Pillow==9.4.0
 psycopg2==2.9.5
