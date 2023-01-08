@@ -1,0 +1,51 @@
+{% extends 'Store/main.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <title>mart</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+    <link rel="shortcut icon" href="ico/favicon.ico">
+   
+</head>
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/main.css' %}">
+
+
+<style>
+    .profile-pic{
+        max-width: 200px;
+        max-height: 200px;
+        margin: 0 auto;
+        border-radius: 50%;
+    }
+</style>
+
+<br>
+<div class="row">
+    <div class="col-md-3">
+        <div class="card card-body">
+            <a class="btn btn-warning" href="{% url 'user_page' %}">&#8592; Back to Profile</a>
+            <hr>
+            <h3 style="text-align: center;">Account Settings</h3>
+            <hr>
+            <img class="profile-pic" src="{{request.user.customer.profile_pic.url}}">
+
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="card card-body">
+
+            <form method="POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.as_p}}
+
+            <input class="btn btn-priamry" type="submit" name="Update Information">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
