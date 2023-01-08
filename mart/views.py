@@ -14,10 +14,14 @@ from . utils import *
 import json
 from django.http import JsonResponse
 import datetime
-
-
 from django.views.decorators.csrf import csrf_exempt
+
+
 @csrf_exempt
+def extract_keywords(request):
+    text = request.POST.get('text')
+    return JsonResponse(text)
+
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def store(request):
