@@ -16,7 +16,8 @@ from django.http import JsonResponse
 import datetime
 
 
-
+from django.views.decorators.csrf import csrf_exempt
+@csrf_exempt
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['customer'])
 def store(request):
